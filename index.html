@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sudarshan Ainwad — AI & Data Science Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Display:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --white: #ffffff;
+  --bg: #f8f9fc;
+  --surface: #ffffff;
+  --surface2: #f1f3f9;
+  --border: #e2e6f0;
+  --border2: #d0d5e8;
+  --text: #1c1e26;
+  --text2: #4a5068;
+  --text3: #8a90a8;
+  --blue: #1a73e8;
+  --blue-light: #e8f0fe;
+  --blue-dark: #1557b0;
+  --green: #1e8a4c;
+  --green-light: #e6f4ea;
+  --red: #d93025;
+  --yellow: #f29900;
+  --yellow-light: #fef7e0;
+  --purple: #7c4dff;
+  --purple-light: #f3eeff;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-blue: 0 4px 20px rgba(26,115,232,0.25);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-xs: 6px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+  height: 64px;
+  display: flex; align-items: center;
+  padding: 0 2.5rem;
+  gap: 2rem;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.nav-logo-avatar {
+  width: 34px; height: 34px;
+  background: linear-gradient(135deg, var(--blue), var(--purple));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.nav-logo-text {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+.nav-logo-text span { color: var(--blue); }
+.nav-spacer { flex: 1; }
+.nav-links { display: flex; gap: 0.25rem; }
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text2);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-links a:hover { background: var(--blue-light); color: var(--blue); }
+.nav-cta {
+  background: var(--blue);
+  color: white !important;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1.3rem !important;
+  border-radius: 100px !important;
+  text-decoration: none;
+  transition: box-shadow 0.2s, background 0.2s !important;
+  box-shadow: var(--shadow-blue);
+}
+.nav-cta:hover { background: var(--blue-dark) !important; box-shadow: 0 6px 24px rgba(26,115,232,0.35) !important; }
+
+/* ── HERO ── */
+#hero {
+  padding: 120px 2.5rem 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  min-height: 100vh;
+}
+.hero-left { }
+.hero-chip {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--green-light);
+  border: 1px solid rgba(30,138,76,0.2);
+  color: var(--green);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.9rem;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.5s 0.2s both;
+}
+.hero-chip::before {
+  content: '';
+  width: 7px; height: 7px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+h1.hero-title {
+  font-size: clamp(2.6rem, 4.5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+  animation: fadeUp 0.5s 0.35s both;
+}
+h1.hero-title .highlight {
+  background: linear-gradient(135deg, var(--blue), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: var(--text2);
+  line-height: 1.7;
+  max-width: 460px;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+  animation: fadeUp 0.5s 0.5s both;
+}
+
+.hero-actions {
+  display: flex; gap: 0.75rem; flex-wrap: wrap;
+  animation: fadeUp 0.5s 0.65s both;
+}
+.btn-filled {
+  background: var(--blue);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.8rem 1.8rem;
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: var(--shadow-blue);
+  transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+}
+.btn-filled:hover { background: var(--blue-dark); box-shadow: 0 6px 24px rgba(26,115,232,0.4); transform: translateY(-1px); }
+.btn-outlined {
+  background: white;
+  color: var(--blue);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.8rem 1.8rem;
+  border-radius: 100px;
+  text-decoration: none;
+  border: 1.5px solid var(--blue);
+  transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+}
+.btn-outlined:hover { background: var(--blue-light); transform: translateY(-1px); }
+
+.hero-stats {
+  display: flex; gap: 2rem; margin-top: 3.5rem;
+  animation: fadeUp 0.5s 0.8s both;
+}
+.hstat {
+  display: flex; flex-direction: column; gap: 0.1rem;
+}
+.hstat-num {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.hstat-num span { color: var(--blue); }
+.hstat-label {
+  font-size: 0.72rem;
+  color: var(--text3);
+  font-weight: 500;
+}
+.hstat-divider { width: 1px; background: var(--border); }
+
+/* Hero right — card collage */
+.hero-right {
+  position: relative;
+  animation: fadeUp 0.6s 0.4s both;
+}
+.hero-card-main {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 2rem;
+  border: 1px solid var(--border);
+}
+.hero-card-header {
+  display: flex; align-items: center; gap: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+.hc-avatar {
+  width: 52px; height: 52px;
+  background: linear-gradient(135deg, #1a73e8, #7c4dff);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.hc-name { font-size: 1rem; font-weight: 700; color: var(--text); }
+.hc-title { font-size: 0.78rem; color: var(--text2); font-weight: 400; margin-top: 1px; }
+
+.skill-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+.pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: 100px;
+}
+.pill-blue { background: var(--blue-light); color: var(--blue); }
+.pill-purple { background: var(--purple-light); color: var(--purple); }
+.pill-green { background: var(--green-light); color: var(--green); }
+.pill-yellow { background: var(--yellow-light); color: #b06000; }
+
+.hc-row {
+  display: flex; align-items: center; gap: 0.8rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.hc-row:last-child { border-bottom: none; }
+.hc-dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
+.hc-row-label { font-size: 0.78rem; color: var(--text2); flex: 1; }
+.hc-row-val { font-size: 0.78rem; font-weight: 600; color: var(--text); }
+
+/* floating mini cards */
+.float-card {
+  position: absolute;
+  background: white;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--border);
+  animation: floatY 4s ease-in-out infinite;
+}
+.float-card-1 { top: -28px; right: -20px; animation-delay: 0s; }
+.float-card-2 { bottom: -24px; left: -20px; animation-delay: 1.5s; }
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.fc-label { font-size: 0.62rem; color: var(--text3); font-weight: 500; margin-bottom: 0.25rem; }
+.fc-val { font-size: 1.1rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
+.fc-sub { font-size: 0.65rem; color: var(--green); font-weight: 600; }
+
+/* ── SECTION WRAPPER ── */
+.section-wrap { max-width: 1200px; margin: 0 auto; padding: 6rem 2.5rem; }
+.section-eyebrow {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.8rem;
+}
+.section-eyebrow::before {
+  content: '';
+  width: 20px; height: 2px;
+  background: var(--blue);
+  border-radius: 2px;
+}
+h2.section-h {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+.section-desc {
+  font-size: 1rem;
+  color: var(--text2);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+/* ── SKILLS ── */
+#skills { background: white; }
+.skills-outer { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.skill-card {
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+  cursor: default;
+}
+.skill-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+  border-color: var(--border2);
+}
+.sc-icon {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.sc-icon-blue { background: var(--blue-light); }
+.sc-icon-purple { background: var(--purple-light); }
+.sc-icon-green { background: var(--green-light); }
+.sc-icon-yellow { background: var(--yellow-light); }
+.sc-title { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+.sc-desc { font-size: 0.78rem; color: var(--text3); line-height: 1.6; margin-bottom: 1rem; }
+.sc-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.sc-tag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+  background: white;
+  color: var(--text2);
+  border: 1px solid var(--border);
+}
+.sc-tag.active { background: var(--blue-light); color: var(--blue); border-color: rgba(26,115,232,0.25); }
+
+/* ── EXPERIENCE ── */
+#experience { background: var(--bg); }
+
+.exp-grid { display: flex; flex-direction: column; gap: 1.25rem; }
+.exp-card {
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.exp-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.exp-card-head {
+  display: flex; align-items: flex-start; gap: 1.25rem;
+  padding: 1.75rem 2rem;
+  cursor: pointer;
+}
+.exp-org-icon {
+  width: 48px; height: 48px;
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  font-weight: 800;
+  color: white;
+  flex-shrink: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.exp-org-iim { background: linear-gradient(135deg, #1a73e8, #0d47a1); }
+.exp-org-drdo { background: linear-gradient(135deg, #1e8a4c, #0d5c2e); }
+
+.exp-head-info { flex: 1; }
+.exp-role-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; }
+.exp-org-name { font-size: 0.82rem; color: var(--text2); font-weight: 500; }
+.exp-head-right { text-align: right; }
+.exp-date-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  background: var(--blue-light);
+  color: var(--blue);
+  white-space: nowrap;
+}
+.exp-date-badge.current { background: var(--green-light); color: var(--green); }
+
+.exp-card-body {
+  padding: 0 2rem 1.75rem;
+  border-top: 1px solid var(--border);
+}
+.exp-project-tag {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--purple);
+  background: var(--purple-light);
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  margin: 1.25rem 0 1rem;
+}
+.exp-bullets { display: flex; flex-direction: column; gap: 0.5rem; }
+.exp-bullet {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  font-size: 0.82rem;
+  color: var(--text2);
+  line-height: 1.65;
+}
+.exp-bullet-dot {
+  width: 6px; height: 6px;
+  background: var(--blue);
+  border-radius: 50%;
+  margin-top: 0.55rem;
+  flex-shrink: 0;
+}
+.exp-metrics { display: flex; gap: 0.75rem; margin-top: 1.25rem; flex-wrap: wrap; }
+.exp-metric {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.72rem;
+  color: var(--text2);
+  font-weight: 500;
+}
+.exp-metric strong { color: var(--blue); font-weight: 700; }
+
+/* ── IMPACT ── */
+#impact { background: linear-gradient(135deg, #1a73e8 0%, #4f46e5 50%, #7c4dff 100%); }
+#impact .section-eyebrow { color: rgba(255,255,255,0.7); }
+#impact .section-eyebrow::before { background: rgba(255,255,255,0.5); }
+#impact h2.section-h { color: white; }
+#impact .section-desc { color: rgba(255,255,255,0.75); }
+
+.metrics-outer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.metric-card {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  transition: background 0.25s, transform 0.25s;
+}
+.metric-card:hover { background: rgba(255,255,255,0.2); transform: translateY(-4px); }
+.mc-num {
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.mc-unit { font-size: 2rem; font-weight: 800; color: rgba(255,255,255,0.6); }
+.mc-label {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.5;
+  font-weight: 400;
+}
+.mc-source {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  margin-top: 0.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ── EDUCATION ── */
+#education { background: white; }
+.edu-flex { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+.edu-card {
+  background: var(--bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.75rem;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.edu-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+.edu-icon {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+.edu-icon-blue { background: var(--blue-light); }
+.edu-icon-yellow { background: var(--yellow-light); }
+.edu-degree { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
+.edu-org { font-size: 0.8rem; color: var(--text2); font-weight: 500; margin-bottom: 0.3rem; }
+.edu-date { font-size: 0.72rem; color: var(--text3); }
+
+.training-header { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; }
+.training-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.training-item {
+  display: flex; align-items: center; gap: 0.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1rem;
+  font-size: 0.78rem;
+  color: var(--text2);
+  line-height: 1.4;
+  transition: border-color 0.2s;
+}
+.training-item:hover { border-color: var(--blue); }
+.ti-icon {
+  width: 32px; height: 32px;
+  border-radius: var(--radius-xs);
+  background: var(--blue-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+/* ── CONTACT ── */
+#contact { background: var(--bg); }
+.contact-card {
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  padding: 3.5rem;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.contact-card h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.75rem;
+}
+.contact-card p {
+  font-size: 1rem;
+  color: var(--text2);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+.contact-info { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+.ci-item {
+  display: flex; align-items: center; gap: 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.ci-item:hover { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-light); }
+.ci-icon {
+  width: 40px; height: 40px;
+  border-radius: var(--radius-xs);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.ci-icon-blue { background: var(--blue-light); }
+.ci-icon-green { background: var(--green-light); }
+.ci-icon-purple { background: var(--purple-light); }
+.ci-label { font-size: 0.7rem; color: var(--text3); font-weight: 500; }
+.ci-val { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+.ci-arrow { margin-left: auto; color: var(--text3); font-size: 0.9rem; }
+.contact-btn { display: block; }
+
+/* ── PROJECTS ── */
+#projects { background: var(--bg); }
+
+.projects-filter {
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+.filter-btn {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.45rem 1.1rem;
+  border-radius: 100px;
+  border: 1.5px solid var(--border);
+  background: white;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
+.filter-btn.active { background: var(--blue); color: white; border-color: var(--blue); box-shadow: var(--shadow-blue); }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.proj-card {
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: box-shadow 0.25s, transform 0.25s;
+  display: flex; flex-direction: column;
+}
+.proj-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+.proj-card[data-hidden="true"] { display: none; }
+
+.proj-banner {
+  height: 130px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.proj-banner-rag { background: linear-gradient(135deg, #e8f0fe, #c5d8fd); }
+.proj-banner-cv  { background: linear-gradient(135deg, #e6f4ea, #bbdfc8); }
+.proj-banner-sem { background: linear-gradient(135deg, #fef7e0, #fde8a0); }
+.proj-banner-game{ background: linear-gradient(135deg, #f3eeff, #d9c5fe); }
+.proj-banner-rob { background: linear-gradient(135deg, #fce8e6, #f5c0bc); }
+.proj-banner-pub { background: linear-gradient(135deg, #e8f0fe, #d0e3ff); }
+
+.proj-banner-dots {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.proj-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.proj-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.9rem; }
+.proj-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+}
+.proj-tag-blue   { background: var(--blue-light); color: var(--blue); }
+.proj-tag-green  { background: var(--green-light); color: var(--green); }
+.proj-tag-yellow { background: var(--yellow-light); color: #b06000; }
+.proj-tag-purple { background: var(--purple-light); color: var(--purple); }
+.proj-tag-red    { background: #fce8e6; color: var(--red); }
+
+.proj-title {
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+.proj-desc {
+  font-size: 0.78rem;
+  color: var(--text2);
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: 1.25rem;
+}
+.proj-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+.proj-org {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text3);
+}
+.proj-metric {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: var(--blue-light);
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+}
+
+/* ── RESUME SECTION ── */
+.resume-banner {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 2.5rem;
+  display: flex; align-items: center; gap: 2rem;
+  margin-top: 3rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.25s;
+}
+.resume-banner:hover { box-shadow: var(--shadow); }
+.resume-icon-wrap {
+  width: 56px; height: 56px;
+  background: var(--blue-light);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+.resume-text { flex: 1; }
+.resume-text strong { display: block; font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
+.resume-text span { font-size: 0.8rem; color: var(--text2); }
+.btn-resume {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--blue);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.75rem 1.6rem;
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: var(--shadow-blue);
+  transition: all 0.2s;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-resume:hover { background: var(--blue-dark); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(26,115,232,0.4); }
+.btn-resume-outline {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: white;
+  color: var(--blue);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.75rem 1.6rem;
+  border-radius: 100px;
+  text-decoration: none;
+  border: 1.5px solid var(--blue);
+  transition: all 0.2s;
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-resume-outline:hover { background: var(--blue-light); transform: translateY(-1px); }
+.resume-actions { display: flex; gap: 0.75rem; }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  background: white;
+  padding: 1.5rem 2.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.75rem;
+  color: var(--text3);
+  font-weight: 500;
+}
+.footer-logo { color: var(--text2); font-weight: 700; font-size: 0.85rem; }
+.footer-logo span { color: var(--blue); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  #hero { grid-template-columns: 1fr; gap: 3rem; min-height: auto; padding: 100px 1.5rem 60px; }
+  .hero-right { display: none; }
+  .skills-outer { grid-template-columns: 1fr 1fr; }
+  .metrics-outer { grid-template-columns: 1fr 1fr; }
+  .edu-flex { grid-template-columns: 1fr; }
+  .training-list { grid-template-columns: 1fr; }
+  .section-wrap { padding: 4rem 1.5rem; }
+  .projects-grid { grid-template-columns: 1fr 1fr; }
+  .resume-banner { flex-direction: column; text-align: center; }
+  .resume-actions { justify-content: center; }
+}
+@media (max-width: 600px) {
+  nav .nav-links { display: none; }
+  .skills-outer { grid-template-columns: 1fr; }
+  .metrics-outer { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+  .contact-card { padding: 2rem 1.5rem; }
+  footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <div class="nav-logo-avatar">SA</div>
+    <span class="nav-logo-text">Sudarshan<span>.ai</span></span>
+  </a>
+  <div class="nav-spacer"></div>
+  <div class="nav-links">
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#impact">Impact</a>
+    <a href="#education">Education</a>
+  </div>
+  <a href="#contact" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-chip">Open to opportunities · Mumbai, India</div>
+    <h1 class="hero-title">
+      AI Engineer &<br/>
+      <span class="highlight">Data Scientist</span>
+    </h1>
+    <p class="hero-sub">
+      Building scalable intelligent systems — RAG pipelines, LLMs, computer vision, and generative AI. 2+ years across IIM Mumbai and DRDO.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-filled">Get in Touch →</a>
+      <a href="https://www.linkedin.com/in/sudarshan-ainwad/" target="_blank" class="btn-outlined">LinkedIn ↗</a>
+      <button onclick="downloadResume()" class="btn-outlined" style="border-color:var(--border);color:var(--text2);">⬇ Resume</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat">
+        <div class="hstat-num">2<span>+</span></div>
+        <div class="hstat-label">Years Experience</div>
+      </div>
+      <div class="hstat-divider"></div>
+      <div class="hstat">
+        <div class="hstat-num">4<span>+</span></div>
+        <div class="hstat-label">AI Projects</div>
+      </div>
+      <div class="hstat-divider"></div>
+      <div class="hstat">
+        <div class="hstat-num">1<span>K+</span></div>
+        <div class="hstat-label">Reports Analyzed</div>
+      </div>
+      <div class="hstat-divider"></div>
+      <div class="hstat">
+        <div class="hstat-num">1</div>
+        <div class="hstat-label">Publication</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="float-card float-card-1">
+      <div class="fc-label">Manual Analysis Saved</div>
+      <div class="fc-val">65%</div>
+      <div class="fc-sub">↑ RAG Pipeline</div>
+    </div>
+    <div class="hero-card-main">
+      <div class="hero-card-header">
+        <div class="hc-avatar">SA</div>
+        <div>
+          <div class="hc-name">Sudarshan Ainwad</div>
+          <div class="hc-title">AI & Data Science Engineer · Mumbai</div>
+        </div>
+      </div>
+      <div class="skill-pills">
+        <span class="pill pill-blue">LLM / RAG</span>
+        <span class="pill pill-purple">Agentic AI</span>
+        <span class="pill pill-green">Computer Vision</span>
+        <span class="pill pill-yellow">Power BI</span>
+        <span class="pill pill-blue">LangChain</span>
+        <span class="pill pill-purple">PyTorch</span>
+      </div>
+      <div class="hc-row">
+        <div class="hc-dot" style="background:#1a73e8"></div>
+        <span class="hc-row-label">Current Role</span>
+        <span class="hc-row-val">Research Associate, IIM</span>
+      </div>
+      <div class="hc-row">
+        <div class="hc-dot" style="background:#1e8a4c"></div>
+        <span class="hc-row-label">Education</span>
+        <span class="hc-row-val">B.Tech Electronics Engg.</span>
+      </div>
+      <div class="hc-row">
+        <div class="hc-dot" style="background:#7c4dff"></div>
+        <span class="hc-row-label">Publication</span>
+        <span class="hc-row-val">IJPR 2026 (Under Review)</span>
+      </div>
+      <div class="hc-row">
+        <div class="hc-dot" style="background:#f29900"></div>
+        <span class="hc-row-label">DRDO Experience</span>
+        <span class="hc-row-val">IR Image AI System</span>
+      </div>
+    </div>
+    <div class="float-card float-card-2">
+      <div class="fc-label">Cost Reduction</div>
+      <div class="fc-val">12%</div>
+      <div class="fc-sub">↑ Anomaly Detection</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-wrap">
+    <div class="section-eyebrow reveal">Technical Expertise</div>
+    <h2 class="section-h reveal">What I Build With</h2>
+    <p class="section-desc reveal">A full-stack AI skillset from model training to deployment, data pipelines to dashboards.</p>
+    <div class="skills-outer">
+      <div class="skill-card reveal reveal-delay-1">
+        <div class="sc-icon sc-icon-blue">🤖</div>
+        <div class="sc-title">Generative AI</div>
+        <div class="sc-desc">Building intelligent applications with large language models and retrieval-augmented generation.</div>
+        <div class="sc-tags">
+          <span class="sc-tag active">LLMs</span>
+          <span class="sc-tag active">RAG</span>
+          <span class="sc-tag active">LangChain</span>
+          <span class="sc-tag active">Agentic AI</span>
+          <span class="sc-tag">Diffusion Models</span>
+          <span class="sc-tag">Multimodal</span>
+        </div>
+      </div>
+      <div class="skill-card reveal reveal-delay-2">
+        <div class="sc-icon sc-icon-purple">🧠</div>
+        <div class="sc-title">Machine Learning</div>
+        <div class="sc-desc">End-to-end ML model development for forecasting, classification, and anomaly detection.</div>
+        <div class="sc-tags">
+          <span class="sc-tag active">PyTorch</span>
+          <span class="sc-tag active">TensorFlow</span>
+          <span class="sc-tag">scikit-learn</span>
+          <span class="sc-tag">Time-Series</span>
+          <span class="sc-tag">Forecasting</span>
+        </div>
+      </div>
+      <div class="skill-card reveal reveal-delay-3">
+        <div class="sc-icon sc-icon-green">👁</div>
+        <div class="sc-title">Computer Vision</div>
+        <div class="sc-desc">Real-time image analysis and thermal data extraction for industrial and defense applications.</div>
+        <div class="sc-tags">
+          <span class="sc-tag active">OpenCV</span>
+          <span class="sc-tag">IR Images</span>
+          <span class="sc-tag">Defect Detection</span>
+          <span class="sc-tag">Thermal Analysis</span>
+        </div>
+      </div>
+      <div class="skill-card reveal reveal-delay-1">
+        <div class="sc-icon sc-icon-yellow">📊</div>
+        <div class="sc-title">Data & Analytics</div>
+        <div class="sc-desc">Interactive dashboards and data pipelines for business and research insights.</div>
+        <div class="sc-tags">
+          <span class="sc-tag active">Power BI</span>
+          <span class="sc-tag active">Tableau</span>
+          <span class="sc-tag">Splunk</span>
+          <span class="sc-tag">PySpark</span>
+          <span class="sc-tag">ETL</span>
+        </div>
+      </div>
+      <div class="skill-card reveal reveal-delay-2">
+        <div class="sc-icon sc-icon-blue">⚙️</div>
+        <div class="sc-title">Engineering & APIs</div>
+        <div class="sc-desc">Building and deploying scalable backend services and REST APIs for AI applications.</div>
+        <div class="sc-tags">
+          <span class="sc-tag active">Python</span>
+          <span class="sc-tag active">FastAPI</span>
+          <span class="sc-tag">Flask</span>
+          <span class="sc-tag">Django</span>
+          <span class="sc-tag">SQL</span>
+          <span class="sc-tag">Git</span>
+        </div>
+      </div>
+      <div class="skill-card reveal reveal-delay-3">
+        <div class="sc-icon sc-icon-purple">🔤</div>
+        <div class="sc-title">NLP & Semantic Search</div>
+        <div class="sc-desc">Text understanding, vector embeddings, and semantic retrieval for intelligent document systems.</div>
+        <div class="sc-tags">
+          <span class="sc-tag active">Semantic Search</span>
+          <span class="sc-tag active">Vector DBs</span>
+          <span class="sc-tag">Sentiment Analysis</span>
+          <span class="sc-tag">Text Mining</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-wrap">
+    <div class="section-eyebrow reveal">Career Journey</div>
+    <h2 class="section-h reveal">Work Experience</h2>
+    <p class="section-desc reveal">Hands-on AI & data science work across leading Indian research and defense institutions.</p>
+    <div class="exp-grid">
+
+      <div class="exp-card reveal">
+        <div class="exp-card-head">
+          <div class="exp-org-icon exp-org-iim">IIM</div>
+          <div class="exp-head-info">
+            <div class="exp-role-title">Research Associate</div>
+            <div class="exp-org-name">Indian Institute of Management, Mumbai</div>
+          </div>
+          <div class="exp-head-right">
+            <span class="exp-date-badge current">Jul 2025 – Present</span>
+          </div>
+        </div>
+        <div class="exp-card-body">
+          <span class="exp-project-tag">🔬 RAG-Based Intelligent Financial Analytics System</span>
+          <div class="exp-bullets">
+            <div class="exp-bullet"><div class="exp-bullet-dot"></div><span>Built RAG financial analytics platform using 1,000+ reports to extract key financial indicators with LLM-powered semantic search</span></div>
+            <div class="exp-bullet"><div class="exp-bullet-dot"></div><span>Automated Python pipelines computing CAR, DE, ROA, ROE, LLR, OSS & liquidity ratios</span></div>
+            <div class="exp-bullet"><div class="exp-bullet-dot"></div><span>Designed PDF-to-structured-dataset workflow, slashing manual analysis time significantly</span></div>
+          </div>
+          <div class="exp-metrics">
+            <span class="exp-metric"><strong>65%</strong> Less Manual Analysis</span>
+            <span class="exp-metric"><strong>1,000+</strong> Reports Processed</span>
+            <span class="exp-metric"><strong>LangChain</strong> + Vector DB</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card reveal reveal-delay-1">
+        <div class="exp-card-head">
+          <div class="exp-org-icon exp-org-iim">IIM</div>
+          <div class="exp-head-info">
+            <div class="exp-role-title">Project Manager</div>
+            <div class="exp-org-name">Indian Institute of Management, Mumbai</div>
+          </div>
+          <div class="exp-head-right">
+            <span class="exp-date-badge">Oct 2024 – Jul 2025</span>
+          </div>
+        </div>
+        <div class="exp-card-body">
+          <span class="exp-project-tag">🎮 Indian Gaming Ecosystem Market Analysis</span>
+          <div class="exp-bullets">
+            <div class="exp-bullet"><div class="exp-bullet-dot"></div><span>Conducted network analysis and ecosystem mapping to improve stakeholder identification accuracy by 20%</span></div>
+            <div class="exp-bullet"><div class="exp-bullet-dot"></div><span>Built predictive forecasting models reducing infrastructure demand prediction error by 10% (MAPE)</span></div>
+            <div class="exp-bullet"><div class="exp-bullet-dot"></div><span>Anomaly detection models reduced operational costs by 12% and infrastructure expenditure by 15%</span></div>
+          </div>
+          <div class="exp-metrics">
+            <span class="exp-metric"><strong>20%</strong> Better Stakeholder ID</span>
+            <span class="exp-metric"><strong>15%</strong> Cost Reduction</span>
+            <span class="exp-metric"><strong>10%</strong> Lower MAPE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card reveal reveal-delay-2">
+        <div class="exp-card-head">
+          <div class="exp-org-icon exp-org-iim">IIM</div>
+          <div class="exp-head-info">
+            <div class="exp-role-title">Research Assistant</div>
+            <div class="exp-org-name">Indian Institute of Management, Mumbai</div>
+          </div>
+          <div class="exp-head-right">
+            <span class="exp-date-badge">May 2024 – Oct 2024</span>
+          </div>
+        </div>
+        <div class="exp-card-body">
+          <span class="exp-project-tag">💡 Indian Semiconductor Industry & AI Impact Research</span>
+          <div class="exp-bullets">
+            <div class="exp-bullet"><div class="exp-bullet-dot"></div><span>ETL on multi-source semiconductor datasets, improving process reliability by 15%</span></div>
+            <div class="exp-bullet"><div class="exp-bullet-dot"></div><span>Built Power BI dashboards for semiconductor market trends and infrastructure performance metrics</span></div>
+            <div class="exp-bullet"><div class="exp-bullet-dot"></div><span>Developed cooling solution recommendation framework, improving infrastructure utilization by 12%</span></div>
+          </div>
+          <div class="exp-metrics">
+            <span class="exp-metric"><strong>15%</strong> Better Reliability</span>
+            <span class="exp-metric"><strong>12%</strong> Infra Utilization</span>
+            <span class="exp-metric"><strong>Power BI</strong> Dashboards</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card reveal reveal-delay-3">
+        <div class="exp-card-head">
+          <div class="exp-org-icon exp-org-drdo">DRDO</div>
+          <div class="exp-head-info">
+            <div class="exp-role-title">Project Engineer</div>
+            <div class="exp-org-name">DRDO – DYSL-SM Lab, Hyderabad</div>
+          </div>
+          <div class="exp-head-right">
+            <span class="exp-date-badge">Apr 2023 – Jul 2023</span>
+          </div>
+        </div>
+        <div class="exp-card-body">
+          <span class="exp-project-tag">🔭 IR Image Temperature Extraction via AI & Computer Vision</span>
+          <div class="exp-bullets">
+            <div class="exp-bullet"><div class="exp-bullet-dot"></div><span>Developed CV system to extract temperature from infrared images & thermal video streams (Gray8, Gray16)</span></div>
+            <div class="exp-bullet"><div class="exp-bullet-dot"></div><span>Reduced manual analysis time by 40% and improved measurement accuracy by 15%</span></div>
+            <div class="exp-bullet"><div class="exp-bullet-dot"></div><span>Assembly and integration of remote-controlled electronics for 3-fingered pneumatic robotic gripper</span></div>
+          </div>
+          <div class="exp-metrics">
+            <span class="exp-metric"><strong>40%</strong> Faster Analysis</span>
+            <span class="exp-metric"><strong>15%</strong> Better Accuracy</span>
+            <span class="exp-metric"><strong>OpenCV</strong> + Python</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-wrap">
+    <div class="section-eyebrow reveal">Portfolio</div>
+    <h2 class="section-h reveal">Featured Projects</h2>
+    <p class="section-desc reveal">A selection of AI & data science projects across research, defense, and industry domains.</p>
+
+    <div class="projects-filter reveal">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="genai">Generative AI</button>
+      <button class="filter-btn" data-filter="cv">Computer Vision</button>
+      <button class="filter-btn" data-filter="ml">Machine Learning</button>
+      <button class="filter-btn" data-filter="analytics">Analytics</button>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="proj-card reveal reveal-delay-1" data-category="genai">
+        <div class="proj-banner proj-banner-rag">
+          <div class="proj-banner-dots"></div>
+          🤖
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag proj-tag-blue">RAG</span>
+            <span class="proj-tag proj-tag-purple">LLM</span>
+            <span class="proj-tag proj-tag-blue">LangChain</span>
+          </div>
+          <div class="proj-title">RAG-Based Financial Analytics System</div>
+          <div class="proj-desc">AI-driven platform using Retrieval-Augmented Generation to analyze 1,000+ financial reports. Integrated LLMs with vector-based retrieval for semantic search and context-aware financial insights.</div>
+          <div class="proj-footer">
+            <span class="proj-org">IIM Mumbai · 2025</span>
+            <span class="proj-metric">65% time saved</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal reveal-delay-2" data-category="cv">
+        <div class="proj-banner proj-banner-cv">
+          <div class="proj-banner-dots"></div>
+          🌡️
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag proj-tag-green">Computer Vision</span>
+            <span class="proj-tag proj-tag-green">OpenCV</span>
+          </div>
+          <div class="proj-title">IR Thermal Image Temperature Extraction</div>
+          <div class="proj-desc">Automated system to extract and analyze temperature data from infrared images and thermal video streams using Python and OpenCV, supporting Gray8 and Gray16 formats for defense applications at DRDO.</div>
+          <div class="proj-footer">
+            <span class="proj-org">DRDO · 2023</span>
+            <span class="proj-metric">40% faster</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal reveal-delay-3" data-category="analytics">
+        <div class="proj-banner proj-banner-sem">
+          <div class="proj-banner-dots"></div>
+          💡
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag proj-tag-yellow">Analytics</span>
+            <span class="proj-tag proj-tag-yellow">Power BI</span>
+          </div>
+          <div class="proj-title">Semiconductor Industry AI Impact Analysis</div>
+          <div class="proj-desc">Comprehensive analysis of Indian semiconductor market using ETL pipelines, predictive thermal load models, and interactive Power BI dashboards for stakeholder decision-making.</div>
+          <div class="proj-footer">
+            <span class="proj-org">IIM Mumbai · 2024</span>
+            <span class="proj-metric">15% reliability ↑</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal reveal-delay-1" data-category="ml">
+        <div class="proj-banner proj-banner-game">
+          <div class="proj-banner-dots"></div>
+          🎮
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag proj-tag-purple">Forecasting</span>
+            <span class="proj-tag proj-tag-purple">ML</span>
+          </div>
+          <div class="proj-title">Indian Gaming Ecosystem Market Analysis</div>
+          <div class="proj-desc">Data-driven analysis with predictive forecasting models for infrastructure demand in the Indian gaming industry. Anomaly detection to prevent failures and optimize maintenance planning.</div>
+          <div class="proj-footer">
+            <span class="proj-org">IIM Mumbai · 2024–25</span>
+            <span class="proj-metric">12% cost reduction</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal reveal-delay-2" data-category="cv">
+        <div class="proj-banner proj-banner-rob">
+          <div class="proj-banner-dots"></div>
+          🦾
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag proj-tag-red">Robotics</span>
+            <span class="proj-tag proj-tag-red">Automation</span>
+          </div>
+          <div class="proj-title">Robotic Gripper Electronics Automation</div>
+          <div class="proj-desc">Assembly and integration of remote-controlled electronics for a 3-fingered pneumatic gripper with passive rotational joints for laboratory automation at DRDO's defense systems lab.</div>
+          <div class="proj-footer">
+            <span class="proj-org">DRDO · 2023</span>
+            <span class="proj-metric">40% faster assembly</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal reveal-delay-3" data-category="genai">
+        <div class="proj-banner proj-banner-pub">
+          <div class="proj-banner-dots"></div>
+          📝
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags">
+            <span class="proj-tag proj-tag-blue">Publication</span>
+            <span class="proj-tag proj-tag-blue">AI/ML</span>
+          </div>
+          <div class="proj-title">Digital Transformation in Semiconductor Fabrication</div>
+          <div class="proj-desc">Research paper on AI/ML-driven process optimization and smart manufacturing in semiconductor wafer fabrication. Submitted to International Journal of Production Research, 2026.</div>
+          <div class="proj-footer">
+            <span class="proj-org">IJPR · Under Review</span>
+            <span class="proj-metric">2026 Publication</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RESUME DOWNLOAD BANNER -->
+    <div class="resume-banner reveal">
+      <div class="resume-icon-wrap">📄</div>
+      <div class="resume-text">
+        <strong>Download My Resume</strong>
+        <span>Full CV with skills, projects, and work experience — ready for recruiters</span>
+      </div>
+      <div class="resume-actions">
+        <button onclick="downloadResume()" class="btn-resume">⬇ Download PDF</button>
+        <a href="mailto:sudarshanainwad10@gmail.com?subject=Resume Request - Sudarshan Ainwad" class="btn-resume-outline">✉ Email Me</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="section-wrap">
+    <div class="section-eyebrow reveal">Results That Matter</div>
+    <h2 class="section-h reveal" style="color:white;">Measurable<br/>Impact</h2>
+    <p class="section-desc reveal">Every project backed by real, quantified outcomes.</p>
+    <div class="metrics-outer">
+      <div class="metric-card reveal reveal-delay-1">
+        <div class="mc-num" data-target="65">0<span class="mc-unit">%</span></div>
+        <div class="mc-label">Reduction in manual analysis time</div>
+        <span class="mc-source">RAG Pipeline · IIM</span>
+      </div>
+      <div class="metric-card reveal reveal-delay-2">
+        <div class="mc-num" data-target="40">0<span class="mc-unit">%</span></div>
+        <div class="mc-label">Faster thermal data extraction</div>
+        <span class="mc-source">Computer Vision · DRDO</span>
+      </div>
+      <div class="metric-card reveal reveal-delay-3">
+        <div class="mc-num" data-target="20">0<span class="mc-unit">%</span></div>
+        <div class="mc-label">Better stakeholder identification</div>
+        <span class="mc-source">Network Analysis · IIM</span>
+      </div>
+      <div class="metric-card reveal reveal-delay-1">
+        <div class="mc-num" data-target="15">0<span class="mc-unit">%</span></div>
+        <div class="mc-label">Infrastructure expenditure reduction</div>
+        <span class="mc-source">Forecasting · IIM</span>
+      </div>
+      <div class="metric-card reveal reveal-delay-2">
+        <div class="mc-num" data-target="12">0<span class="mc-unit">%</span></div>
+        <div class="mc-label">Operational cost reduction</div>
+        <span class="mc-source">Anomaly Detection · IIM</span>
+      </div>
+      <div class="metric-card reveal reveal-delay-3">
+        <div class="mc-num" data-target="1000" data-suffix="K+">0<span class="mc-unit">+</span></div>
+        <div class="mc-label">Financial reports analyzed</div>
+        <span class="mc-source">RAG System · IIM</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-wrap">
+    <div class="section-eyebrow reveal">Academic Background</div>
+    <h2 class="section-h reveal">Education &<br/>Certifications</h2>
+    <div class="edu-flex reveal">
+      <div class="edu-card">
+        <div class="edu-icon edu-icon-blue">🎓</div>
+        <div class="edu-degree">B.Tech — Electronics Engineering</div>
+        <div class="edu-org">Walchand College of Engineering, Sangli</div>
+        <div class="edu-date">Jan 2015 – Sept 2019</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon edu-icon-yellow">📄</div>
+        <div class="edu-degree">Publication — IJPR 2026</div>
+        <div class="edu-org">Digital Transformation in Semiconductor Wafer Fabrication</div>
+        <div class="edu-date">Under Review · Focus: AI/ML process optimization</div>
+      </div>
+    </div>
+    <div class="training-header reveal">Certifications & Training</div>
+    <div class="training-list">
+      <div class="training-item reveal reveal-delay-1"><div class="ti-icon">🚀</div>Winter Internship – Space & Defense Systems · ISRO</div>
+      <div class="training-item reveal reveal-delay-2"><div class="ti-icon">🔬</div>Semiconductor Characterization & Fabrication (MOTA) · IISc Bangalore</div>
+      <div class="training-item reveal reveal-delay-3"><div class="ti-icon">📊</div>Full Stack Data Science Certification · NASSCOM</div>
+      <div class="training-item reveal reveal-delay-4"><div class="ti-icon">🤖</div>Machine Learning Workshop (National-Level) · NIT Kurukshetra, 2025</div>
+      <div class="training-item reveal reveal-delay-5"><div class="ti-icon">⚡</div>Apache PySpark for Big Data Processing · Great Learning</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-wrap">
+    <div class="contact-card reveal">
+      <div class="section-eyebrow" style="justify-content:center;margin-bottom:0.8rem;">Get In Touch</div>
+      <h2>Let's Work Together</h2>
+      <p>Open to full-time roles in AI/ML Engineering, Generative AI, and Data Science. Based in Mumbai — open to remote and hybrid opportunities.</p>
+      <div class="contact-info">
+        <a href="mailto:sudarshanainwad10@gmail.com" class="ci-item">
+          <div class="ci-icon ci-icon-blue">✉️</div>
+          <div>
+            <div class="ci-label">Email</div>
+            <div class="ci-val">sudarshanainwad10@gmail.com</div>
+          </div>
+          <span class="ci-arrow">↗</span>
+        </a>
+        <a href="https://www.linkedin.com/in/sudarshan-ainwad/" target="_blank" class="ci-item">
+          <div class="ci-icon ci-icon-purple">💼</div>
+          <div>
+            <div class="ci-label">LinkedIn</div>
+            <div class="ci-val">linkedin.com/in/sudarshan-ainwad</div>
+          </div>
+          <span class="ci-arrow">↗</span>
+        </a>
+        <a href="tel:+917385375259" class="ci-item">
+          <div class="ci-icon ci-icon-green">📱</div>
+          <div>
+            <div class="ci-label">Phone</div>
+            <div class="ci-val">+91 73853 75259</div>
+          </div>
+          <span class="ci-arrow">↗</span>
+        </a>
+      </div>
+      <a href="mailto:sudarshanainwad10@gmail.com" class="btn-filled contact-btn" style="display:inline-flex;justify-content:center;">Send a Message →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Sudarshan<span>.ai</span></span>
+  <span>AI · ML · Generative AI · Computer Vision · Mumbai</span>
+  <span>© 2026 Sudarshan Ainwad</span>
+</footer>
+
+<script>
+// Project filter
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.proj-card').forEach(card => {
+      const match = filter === 'all' || card.dataset.category === filter;
+      card.style.display = match ? 'flex' : 'none';
+      card.style.flexDirection = match ? 'column' : '';
+    });
+  });
+});
+
+// Resume download — generates a clean text resume and triggers download
+function downloadResume() {
+  const content = `SUDARSHAN AINWAD
+AI & Data Science Engineer
+Mumbai, India | sudarshanainwad10@gmail.com | +91 73853 75259
+LinkedIn: https://www.linkedin.com/in/sudarshan-ainwad/
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Experienced Data Science professional with 2+ years of experience developing scalable AI solutions 
+across research and engineering environments. Skilled in machine learning, deep learning, computer 
+vision, and time-series forecasting. Proficient in Generative AI, Agentic AI, LangChain, and modern 
+AI frameworks. Contributed to AI-driven solutions at IIM Mumbai and DRDO.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SKILLS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Generative AI: LLMs, Diffusion models, Multimodal models, Agentic AI, LangChain, RAG
+• Programming: Python, SQL, JSON, Git, GitHub
+• Deep Learning: TensorFlow, PyTorch, Neural Networks
+• Machine Learning: scikit-learn, Supervised/Unsupervised algorithms, Time-Series Forecasting
+• Computer Vision: OpenCV, IR Image Analysis, Thermal Video Processing
+• Data Visualization: Power BI, Tableau, Splunk
+• Frameworks: FastAPI, RestAPI, Flask, Django
+• Big Data: Apache PySpark
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EXPERIENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Research Associate | IIM Mumbai | Jul 2025 – Present
+Project: RAG-Based Intelligent Financial Analytics System
+• Developed RAG financial analytics system using 1,000+ financial reports
+• Integrated LLMs with vector-based document retrieval for semantic search
+• Automated Python pipelines computing CAR, DE, ROA, ROE, LLR, OSS, liquidity ratios
+• Reduced manual analysis time by 65%
+
+Project Manager | IIM Mumbai | Oct 2024 – Jul 2025
+Project: Market Analysis for Indian Gaming Ecosystems
+• Improved stakeholder identification accuracy by 20% via network analysis
+• Developed predictive forecasting models reducing prediction error by 10% (MAPE)
+• Achieved 15% reduction in infrastructure expenditure
+• Built anomaly detection models reducing operational costs by 12%
+
+Research Assistant | IIM Mumbai | May 2024 – Oct 2024
+Project: Indian Semiconductor Industry & AI Impact Analysis
+• ETL on multi-source semiconductor datasets, improving reliability by 15%
+• Built interactive Power BI dashboards for market trends and performance metrics
+• Developed cooling solution recommendation framework, improving utilization by 12%
+• Reduced operational inefficiencies by 10% via predictive thermal load models
+
+Project Engineer | DRDO – DYSL-SM Lab, Hyderabad | Apr 2023 – Jul 2023
+Project: Temperature Extraction from IR Images using AI & Computer Vision
+• Developed CV system to extract temperature from infrared images & thermal video streams
+• Processed Gray8 & Gray16 formats using Python and OpenCV
+• Reduced manual analysis time by 40% and improved accuracy by 15%
+• Assembled remote-controlled electronics for 3-fingered pneumatic robotic gripper
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EDUCATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+B.Tech — Electronics Engineering
+Walchand College of Engineering, Sangli, Maharashtra | Jan 2015 – Sept 2019
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TRAINING & CERTIFICATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Winter Internship – Space & Defense Systems, ISRO
+• Advanced Training in Semiconductor Characterization & Fabrication (MOTA), IISc Bangalore
+• Full Stack Data Science Certification, NASSCOM
+• Machine Learning Workshop (National-Level), NIT Kurukshetra, 2025
+• Apache PySpark for Big Data Processing, Great Learning
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PUBLICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Digital Transformation in Semiconductor Wafer Fabrication: Practices and Use Cases
+International Journal of Production Research, 2026 (Under Review)
+Focus: AI/ML-driven process optimization and smart manufacturing in semiconductor fabrication
+`;
+
+  const blob = new Blob([content], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'Sudarshan_Ainwad_Resume.txt';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Counter animation for impact section
+function animateCount(el, target, isBig) {
+  let start = 0;
+  const duration = 1400;
+  const startTime = performance.now();
+  const unit = el.querySelector('.mc-unit');
+  const unitText = unit ? unit.outerHTML : '';
+
+  function step(now) {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    const val = Math.round(ease * target);
+    if (isBig) {
+      el.innerHTML = '1' + unitText.replace('>', '>K+');
+    } else {
+      el.innerHTML = val + unitText;
+    }
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+const metricObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('[data-target]').forEach(el => {
+        const target = parseInt(el.dataset.target);
+        const isBig = el.dataset.suffix === 'K+';
+        animateCount(el, target, isBig);
+      });
+      metricObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+const impactSection = document.querySelector('#impact');
+if (impactSection) metricObs.observe(impactSection);
+</script>
+</body>
+</html>
